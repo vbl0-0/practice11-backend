@@ -49,7 +49,7 @@ exports.create = async (req, res) => {
   }
 };
 
-// PUT /api/items/:id
+// PUT /api/items/:id (full update)
 exports.updateFull = async (req, res) => {
   try {
     const result = await (await getCollection()).replaceOne(
@@ -67,7 +67,7 @@ exports.updateFull = async (req, res) => {
   }
 };
 
-// PATCH /api/items/:id
+// PATCH /api/items/:id (partial update)
 exports.updatePartial = async (req, res) => {
   try {
     const result = await (await getCollection()).updateOne(
@@ -101,4 +101,3 @@ exports.remove = async (req, res) => {
     res.status(400).json({ error: 'Invalid ID' });
   }
 };
- 
