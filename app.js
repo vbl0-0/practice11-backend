@@ -10,6 +10,14 @@ const MONGO_URI = process.env.MONGO_URI;
 
 let products;
 
+app.get('/version', (req, res) => {
+  res.json({
+    version: '1.1',
+    updatedAt: '2026-01-22'
+  });
+});
+
+
 async function start() {
   try {
     const client = await MongoClient.connect(MONGO_URI);
